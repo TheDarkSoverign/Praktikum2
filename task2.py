@@ -9,7 +9,7 @@ pygame.display.set_caption('Первая программа в pygame')
 # Создание кругов
 pygame.draw.circle(screen, 'red', (100, 100), 30, width=0)
 pygame.draw.circle(screen, (255, 154, 13), (100, 400), 50, width=15)
-pygame.draw.circle(screen, '#FFE54', (300, 100), 100, width=5)
+pygame.draw.circle(screen, '#FFEE54', (300, 100), 100, width=5)
 
 # Создание прямоугольников
 pygame.draw.rect(screen, 'yellow', (400, 20, 300, 200), 0)
