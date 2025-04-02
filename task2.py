@@ -21,7 +21,26 @@ for i in range(5):
     color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
     pygame.draw.rect(screen, color, [top, left, w, h], 4)
 
-# Создание домика
+# Создание произвольной фигуры из линий
+dots = [[221, 432], [225, 331], [133, 342], [141, 310],
+        [51, 230], [74, 217], [58, 153], [114, 164],
+        [230, 287], [249, 193], [301, 193],
+        [320, 281], [351, 190], [301, 177], [248, 190],
+        [473, 432], [497, 386], [386, 217],
+        [337, 310], [327, 342], [233, 331]]
+pygame.draw.lines(screen, 'green', True, dots, 2)
+
+# Загрузка и отображение изображения яблока
+apple = pygame.image.load('apple.png')
+screen.blit(apple, (400, 450))
+pygame.display.flip()
+
+# Перемещение изображения яблока
+pygame.time.delay(2000)
+pygame.draw.rect(screen, 'white', (400, 450, 100, 100))
+screen.blit(apple, (600, 450))
+
+# Создание домика из линий
 house_x = 400  # центр экрана
 house_y = 300
 house_width = 200
@@ -29,21 +48,14 @@ house_height = 150
 roof_height = 100
 
 # Основа дома
-pygame.draw.rect(screen, 'brown', (house_x - house_width // 2, house_y, house_width, house_height))
+pygame.draw.line(screen, 'black', (house_x - house_width // 2, house_y), (house_x - house_width // 2, house_y + house_height), 2)
+pygame.draw.line(screen, 'black', (house_x + house_width // 2, house_y), (house_x + house_width // 2, house_y + house_height), 2)
+pygame.draw.line(screen, 'black', (house_x - house_width // 2, house_y + house_height), (house_x + house_width // 2, house_y + house_height), 2)
+pygame.draw.line(screen, 'black', (house_x - house_width // 2, house_y), (house_x + house_width // 2, house_y), 2)
 
 # Крыша
-roof_points = [(house_x, house_y - roof_height),  # верхушка крыши
-               (house_x - house_width // 2, house_y),
-               (house_x + house_width // 2, house_y)]
-pygame.draw.polygon(screen, 'red', roof_points)
-
-# Окно в доме
-pygame.draw.rect(screen, 'blue', (house_x - 30, house_y + 40, 60, 60))
-pygame.draw.line(screen, 'black', (house_x, house_y + 40), (house_x, house_y + 100), 2)
-pygame.draw.line(screen, 'black', (house_x - 30, house_y + 70), (house_x + 30, house_y + 70), 2)
-
-# Дверь
-pygame.draw.rect(screen, 'black', (house_x - 25, house_y + 80, 50, 70))
+pygame.draw.line(screen, 'black', (house_x, house_y - roof_height), (house_x - house_width // 2, house_y), 2)
+pygame.draw.line(screen, 'black', (house_x, house_y - roof_height), (house_x + house_width // 2, house_y), 2)
 
 pygame.display.flip()
 
