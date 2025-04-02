@@ -4,7 +4,7 @@ import random
 pygame.init()
 screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
 screen.fill((255, 255, 255))  # белый фон
-pygame.display.set_caption('Первая программа в pygame')
+pygame.display.set_caption('Тимчук Никита Викторович')
 
 # Создание кругов
 pygame.draw.circle(screen, 'red', (100, 100), 30, width=0)
